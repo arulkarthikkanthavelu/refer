@@ -1,0 +1,300 @@
+
+
+SQL> create table mobile_bill(billno primary key,customerno references mobile_cu
+stomer(customerno),billamount number(6),billpaiddate date);
+create table mobile_bill(billno primary key,customerno references mobile_custome
+r(customerno),billamount number(6),billpaiddate date)
+                         *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+SQL> create table mobile_bill(billno primary key,customerno references mobile_cu
+stomer(customerno),bill_amount number(6),billpaiddate date);
+create table mobile_bill(billno primary key,customerno references mobile_custome
+r(customerno),bill_amount number(6),billpaiddate date)
+                         *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+SQL> create table mobile_bill(billno primary key,customerno references mobile_cu
+stomer(customerno),billamount number,billpaiddate date);
+create table mobile_bill(billno primary key,customerno references mobile_custome
+r(customerno),billamount number,billpaiddate date)
+                         *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+SQL> create table mobile_bill(billno primary key,customerno references mobile_cu
+stomer(customerno),bill_amount number,bill_paid_date date);
+create table mobile_bill(billno primary key,customerno references mobile_custome
+r(customerno),bill_amount number,bill_paid_date date)
+                         *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+SQL> create table mobile_bill(billno primary key,customernumber references mobil
+e_customer(customerno),billamount number,billpaydate date);
+create table mobile_bill(billno primary key,customernumber references mobile_cus
+tomer(customerno),billamount number,billpaydate date)
+                         *
+ERROR at line 1:
+ORA-02263: need to specify the datatype for this column
+
+
+SQL> create table mobile_bill(billno number primary key,customernumber reference
+s mobile_customer(customerno),billamount number,billpaydate date);
+
+Table created.
+
+SQL> create sequence billseq
+  2  start with 201
+  3  increment by 1;
+
+Sequence created.
+
+SQL> insert into mobile_bill values(billseq.nextval,&customerno,&billamount,&bil
+ldate);
+Enter value for customerno: 1001
+Enter value for billamount: 112
+Enter value for billdate: 06-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+&billdate)
+new   1: insert into mobile_bill values(billseq.nextval,1001,112,06-jan-18)
+insert into mobile_bill values(billseq.nextval,1001,112,06-jan-18)
+                                                           *
+ERROR at line 1:
+ORA-00984: column not allowed here
+
+
+SQL> insert into mobile_bill values(billseq.nextval,&customerno,&billamount,'&bi
+lldate');
+Enter value for customerno: 1001
+Enter value for billamount: 112
+Enter value for billdate: 06-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1001,112,'06-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1002
+Enter value for billamount: 198
+Enter value for billdate: 06-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1002,198,'06-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1001
+Enter value for billamount: 112
+Enter value for billdate: 07-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1001,112,'07-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1004
+Enter value for billamount: 166
+Enter value for billdate: 07-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1004,166,'07-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1005
+Enter value for billamount: 100
+Enter value for billdate: 08-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1005,100,'08-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1004
+Enter value for billamount: 166
+Enter value for billdate: 09-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1004,166,'09-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1003
+Enter value for billamount: 128
+Enter value for billdate: 10-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1003,128,'10-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1002
+Enter value for billamount: 198
+Enter value for billdate: 13-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1002,198,'13-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1005
+Enter value for billamount: 50
+Enter value for billdate: 15-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1005,50,'15-jan-18')
+
+1 row created.
+
+SQL> /
+Enter value for customerno: 1005
+Enter value for billamount: 44
+Enter value for billdate: 20-jan-18
+old   1: insert into mobile_bill values(billseq.nextval,&customerno,&billamount,
+'&billdate')
+new   1: insert into mobile_bill values(billseq.nextval,1005,44,'20-jan-18')
+
+1 row created.
+
+SQL> select * from mobile_bill;
+
+    BILLNO CUSTOMERNUMBER BILLAMOUNT BILLPAYDA
+---------- -------------- ---------- ---------
+       201           1001        112 06-JAN-18
+       202           1002        198 06-JAN-18
+       203           1001        112 07-JAN-18
+       204           1004        166 07-JAN-18
+       205           1005        100 08-JAN-18
+       206           1004        166 09-JAN-18
+       207           1003        128 10-JAN-18
+       208           1002        198 13-JAN-18
+       209           1005         50 15-JAN-18
+       210           1005         44 20-JAN-18
+
+10 rows selected.
+
+SQL> select customerno,customername from mobile_customer where noofcalls=(select
+ max(noofcalls)from mobile_customer);
+
+CUSTOMERNO CUSTOMERNAME
+---------- --------------------
+      1002 john
+
+SQL> select customernumber,billpaydate from mobile_bill where billpaydate=(selec
+t max(customernumber)from mobile_bill;
+select customernumber,billpaydate from mobile_bill where billpaydate=(select max
+(customernumber)from mobile_bill
+                                                                      *
+ERROR at line 1:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> select customernumber,billpaydate from mobile_bill where billpaydate=(selec
+t max(customernumber)from mobile_bill);
+select customernumber,billpaydate from mobile_bill where billpaydate=(select max
+(customernumber)from mobile_bill)
+                                                                    *
+ERROR at line 1:
+ORA-00932: inconsistent datatypes: expected DATE got NUMBER
+
+
+SQL> select customernumber,count(*) from mobile_bill group by customernumber hav
+ing count(*)>1;
+
+CUSTOMERNUMBER   COUNT(*)
+-------------- ----------
+          1001          2
+          1002          2
+          1004          2
+          1005          3
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+
+  2  on mobile_customer.customerno=mobile_bill.customernumber where to_number(to
+_char(mobile_bill.billpaydate,'DD')))=15;
+on mobile_customer.customerno=mobile_bill.customernumber where to_number(to_char
+(mobile_bill.billpaydate,'DD')))=15
+
+                               *
+ERROR at line 2:
+ORA-00920: invalid relational operator
+
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+on mobile_customer.customerno=mobile_bill.customernumber where to_number(to_char
+(mobile_bill.billpaydate,'DD')))=15;
+select customername,billpaydate from mobile_customer inner join mobile_billon mo
+bile_customer.customerno=mobile_bill.customernumber where to_number(to_char(mobi
+le_bill.billpaydate,'DD')))=15
+
+             *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+ on mobile_customer.customerno= (mobile_bill.customernumber where to_number(to_c
+har(mobile_bill.billpaydate,'DD')))=15;
+select customername,billpaydate from mobile_customer inner join mobile_bill on m
+obile_customer.customerno= (mobile_bill.customernumber where to_number(to_char(m
+obile_bill.billpaydate,'DD')))=15
+
+                                                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+ on mobile_customer.customerno= mobile_bill.customernumber where (to_number(to_c
+har(mobile_bill.billpaydate,'DD')))=15;
+
+CUSTOMERNAME         BILLPAYDA
+-------------------- ---------
+hari                 15-JAN-18
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+ on mobile_customer.customerno= mobile_bill.customernumber where (to_number(to_c
+har(mobile_bill.billpaydate,'DD')))>15;
+
+CUSTOMERNAME         BILLPAYDA
+-------------------- ---------
+hari                 20-JAN-18
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+ on mobile_customer.customerno= mobile_bill.customernumber where (to_number(to_c
+har(mobile_bill.billpaydate,'DD')))=>15;
+select customername,billpaydate from mobile_customer inner join mobile_bill on m
+obile_customer.customerno= mobile_bill.customernumber where (to_number(to_char(m
+obile_bill.billpaydate,'DD')))=>15
+
+
+                              *
+ERROR at line 1:
+ORA-00920: invalid relational operator
+
+
+SQL> select customername,billpaydate from mobile_customer inner join mobile_bill
+ on mobile_customer.customerno= mobile_bill.customernumber where (to_number(to_c
+har(mobile_bill.billpaydate,'DD')))>=15;
+
+CUSTOMERNAME         BILLPAYDA
+-------------------- ---------
+hari                 20-JAN-18
+hari                 15-JAN-18
+
+SQL>
